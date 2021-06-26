@@ -25,7 +25,7 @@ const ChatFeed = (props) => {
 
         )
     }
-    renderMessages();
+
     if(!chat) return "Loading..."
     return (
         <div className="chat-feed">
@@ -37,6 +37,7 @@ const ChatFeed = (props) => {
                     {chat.people.map((person)=>'${person.person.username}')}
                 </div>
             </div>
+            {renderMessages()}
         </div>
     )
 }
