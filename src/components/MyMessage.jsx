@@ -1,22 +1,23 @@
 
-const MyMessage = (message)=> {
+const MyMessage = ({message}) => {
     //Checking our message contains any attachments.
-    if(message?.attachments?.length>0){
-        return(
-            <img 
-            src={message.attachments[0].file}
-            alt='message-attachment'
-            className='message-image'
-            style={{float:'right'}}
+    if (message?.attachments?.length > 0) {
+        return (
+            <img
+                src={message.attachments[0].file}
+                alt='message-attachment'
+                className='message-image'
+                style={{ float: 'right' }}
             />
         )
+    } else {
+        // give styles to our message. Which appear at right side.
+        return (
+            <div className="message" style={{ float: 'right', marginRight: '18px', color: 'white', backgroundColor: '#3B2A50' }}>
+                {message.text}
+            </div>
+        )
     }
-    // give styles to our message. Which appear at right side.
-    return(
-        <div style={{float:'right',marginRight:'18px',color:'white',backGroundColor:'#3b2a50'}}>
-            {message.text}
-        </div>
-    )
 }
 
 export default MyMessage;
